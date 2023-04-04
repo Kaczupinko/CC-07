@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Example - form with validation</title>
+    <style>
+        input[type='text'] {
+            padding: 10px;
+            font-size: 18px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: gray;
+            color: white;
+            cursor: not-allowed;
+        }
+
+        button.active {
+            background-color: blue;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Example - form with validation</h1>
+    <form>
+        <label>
+            Name:
+            <input type="text" id="name-input">
+        </label>
+        <label>
+            Surname:
+            <input type="text" id="surname-input">
+        </label>
+        <button type="submit" id="submit-btn" class="disabled" disabled>Submit</button>
+    </form>
+
+    <script>
+        const nameInput = document.getElementById("name-input");
+        const surnameInput = document.getElementById("surname-input");
+        const submitBtn = document.getElementById("submit-btn");
+
+        function checkFormValidity() {
+            const name = nameInput.value.trim();
+            const surname = surnameInput.value.trim();
+            if (name !== "" && surname !== "") {
+                submitBtn.classList.add("active");
+                submitBtn.classList.remove("disabled");
+                submitBtn.removeAttribute("disabled");
+            } else {
+                submitBtn.classList.add("disabled");
+                submitBtn.classList.remove("active");
+                submitBtn.setAttribute("disabled", "disabled");
+            }
+        }
+
+        nameInput.addEventListener("input", checkFormValidity);
+        surnameInput.addEventListener("input", checkFormValidity);
+    </script>
+</body>
+
+</html>
