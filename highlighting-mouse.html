@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>highlighting list items</title>
+    <style>
+        li {
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .highlight {
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Example - highlighting list items</h1>
+    <ul>
+        <li>Element 1</li>
+        <li>Element 2</li>
+        <li>Element 3</li>
+    </ul>
+
+    <script>
+        const items = document.querySelectorAll('li');
+
+        items.forEach((item) => {
+            item.addEventListener('mouseenter', () => {
+                item.classList.add('highlight');
+            });
+
+            item.addEventListener('mouseleave', () => {
+                item.classList.remove('highlight');
+            });
+        });
+    </script>
+</body>
+
+</html>
