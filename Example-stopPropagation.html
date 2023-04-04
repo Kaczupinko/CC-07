@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Example - stopPropagation</title>
+    <style>
+        div {
+            padding: 20px;
+            margin: 10px;
+            border: 1px solid black;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="outer">
+        <div id="middle">
+            <div id="inner">Click me!</div>
+        </div>
+    </div>
+
+    <script>
+        const outer = document.getElementById('outer');
+        const middle = document.getElementById('middle');
+        const inner = document.getElementById('inner');
+
+        outer.addEventListener('click', () => {
+            console.log('outer');
+        });
+
+        middle.addEventListener('click', () => {
+            console.log('middle');
+        });
+
+        inner.addEventListener('click', (event) => {
+            event.stopPropagation();
+            console.log('inner');
+        });
+    </script>
+</body>
+
+</html>
