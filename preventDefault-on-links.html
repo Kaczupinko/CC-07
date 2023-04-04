@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Example - preventDefault on links</title>
+</head>
+
+<body>
+    <h1>Example - preventDefault on links</h1>
+    <ul>
+        <li><a href="https://google.com">Google</a></li>
+        <li><a href="https://bing.com">Bing</a></li>
+        <li><a href="https://duckduckgo.com">DuckDuckGo</a></li>
+    </ul>
+
+    <script>
+        const links = document.querySelectorAll('a');
+
+        links.forEach(link => {
+            link.addEventListener('click', event => {
+                event.preventDefault();
+                console.log(`Link "${link.textContent}" has been clicked"`);
+            });
+        })
+    </script>
+</body>
+
+</html>
